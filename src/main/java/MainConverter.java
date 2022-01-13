@@ -25,7 +25,7 @@ boolean choice= true;
                 Scanner userInput = new Scanner(System.in);
                 firstInput = userInput.nextInt();
                 if (firstInput != 1.0 && firstInput != 2.0) { //  this message  will appear if the user inputs any other number other than 1 or 2
-                    // however i did not find how to make it return to the start
+
                     System.out.println("Wrong input try again");
                     Scanner reset = new Scanner(System.in);
                     userInput = userInput.reset();
@@ -41,7 +41,7 @@ boolean choice= true;
                         ArrayList<Double> usdOutComeList = new ArrayList<>();
                         usdOutComeList.add(usdOutCome);
                         System.out.println("Start over 1.Yes/2.No");
-                        if (usdInput.nextDouble() == 2.0) {  // This will print of the user does not want to start over,need to input the number 2 twice in order for the program to finish properly
+                        if (usdInput.nextDouble() == 2.0) {  // This will print of the user does not want to start over
                             System.out.println("Thanks for using our currency converter\n Your results are: "+usdOutComeList);
                             Files.writeString(Path.of(filePath), "Your results are" + usdOutComeList);
                             choice=false;
