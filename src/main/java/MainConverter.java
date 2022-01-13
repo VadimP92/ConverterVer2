@@ -8,8 +8,10 @@ import java.util.Scanner;
 
 public class MainConverter {
     public static void main(String[] args) throws IOException {
+        double eur;
         double usd;
         double ils;
+
         int restart = 1;
         double Yes=1.0;
         double No=2.0;
@@ -18,13 +20,13 @@ boolean choice= true;
         System.out.println("Welcome to userInput converter");
         do {
             int firstInput;
-            System.out.println("Please choose an option (1/2)");
-            System.out.println("1.Dollars to Shekals");
-            System.out.println("2.Shekals to Dollars");
+            System.out.println("Please choose an option (1/2/3) \n 1.Dollars to Shekals \n 2.Shekals to Dollars \n 3.EUR to ILS ");
+//            System.out.println("1.Dollars to Shekals");
+//            System.out.println("2.Shekals to Dollars");
             try {                                           // the hall cod is in try/catch and,an Exception will cause a restart in any point of the program.
                 Scanner userInput = new Scanner(System.in);
                 firstInput = userInput.nextInt();
-                if (firstInput != 1.0 && firstInput != 2.0) { //  this message  will appear if the user inputs any other number other than 1 or 2
+                if (firstInput != 1.0 && firstInput != 2.0 && firstInput !=3.0) { //  this message  will appear if the user inputs any other number other than 1 or 2
 
                     System.out.println("Wrong input try again");
                     Scanner reset = new Scanner(System.in);
@@ -66,6 +68,22 @@ boolean choice= true;
 
                         }
                         break;
+
+                    case 3:
+                        System.out.println("Enter the amount to convert. (EUR to ILS only)");
+                        Scanner eurInput=new Scanner(System.in);
+                        eur=eurInput.nextDouble();
+                        double eurOutCome=new EUR().calculate(eur);
+                        System.out.println(eurOutCome);
+                        ArrayList<Double> eurOutComeList=new ArrayList<>();
+                        eurOutComeList.add(eurOutCome);
+                        System.out.println("Start Over 1.Yes / 2.No");
+                        if (eurInput.nextDouble()==2.0){
+                            System.out.println("Thanks for using currency converter \n Your results are:"+eurOutComeList);
+                            Files.writeString(Path.of(filePath),"Your results are"+eurOutComeList);
+                            choice=false;
+                            break;
+                        }
 
                 }
 
