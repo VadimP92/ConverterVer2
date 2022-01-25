@@ -26,12 +26,7 @@ boolean choice= true;
             try {                                           // the hall cod is in try/catch and,an Exception will cause a restart in any point of the program.
                 Scanner userInput = new Scanner(System.in);
                 firstInput = userInput.nextInt();
-                if (firstInput != 1.0 && firstInput != 2.0 && firstInput !=3.0) { //  this message  will appear if the user inputs any other number other than 1 or 2
 
-                    System.out.println("Wrong input try again");
-                    Scanner reset = new Scanner(System.in);
-                    userInput = userInput.reset();
-                }
 
                 switch (firstInput) {  // 1st option of converter usd to ils
                     case 1:
@@ -42,7 +37,7 @@ boolean choice= true;
                         System.out.println(usdOutCome); /// will print the result after convertion
                         ArrayList<Double> usdOutComeList = new ArrayList<>();
                         usdOutComeList.add(usdOutCome);
-                        System.out.println("Start over 1.Yes/2.No");
+                        System.out.println("Start over 1=Yes/2=No");
                         if (usdInput.nextDouble() == 2.0) {  // This will print of the user does not want to start over
                             System.out.println("Thanks for using our currency converter\n Your results are: "+usdOutComeList);
                             Files.writeString(Path.of(filePath), "Your results are" + usdOutComeList);
@@ -59,7 +54,7 @@ boolean choice= true;
                         System.out.println(ilsOutCome);
                         ArrayList<Double> ilsOutComeList = new ArrayList<>();
                         ilsOutComeList.add(ilsOutCome);
-                        System.out.println("Start over 1.Yes / 2.No");
+                        System.out.println("Start over 1=Yes / 2=No");
                         if (ilsInput.nextDouble() == 2.0) { // this opetion will print if the user does not want to start over
                             System.out.println("Thanks for using our currency converter \n Your results are:"+ ilsOutComeList);
                             Files.writeString(Path.of(filePath), "Your results are" + ilsOutComeList);
@@ -77,7 +72,7 @@ boolean choice= true;
                         System.out.println(eurOutCome);
                         ArrayList<Double> eurOutComeList=new ArrayList<>();
                         eurOutComeList.add(eurOutCome);
-                        System.out.println("Start Over 1.Yes / 2.No");
+                        System.out.println("Start Over 1=Yes / 2=No");
                         if (eurInput.nextDouble()==2.0){
                             System.out.println("Thanks for using currency converter \n Your results are:"+eurOutComeList);
                             Files.writeString(Path.of(filePath),"Your results are"+eurOutComeList);
@@ -89,7 +84,7 @@ boolean choice= true;
 
             }catch (InputMismatchException | IOException exception){ // this will catch and exceptions and will restart the program
                 exception.printStackTrace();
-                System.out.println("Wrong input please try again");
+                System.out.println("Wrong input we accept only numbers");
                 Scanner scanner = new Scanner(System.in);
                 scanner=scanner.reset();
 
